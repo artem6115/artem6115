@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="shortcut icon" href="icon.ico">
+    <meta charset="UTF-8">
+    <title>Портал государственных услуг Российской Федерации</title>
+
+    <script type="text/javascript">
+        data = [
+        "9740 0000 6115 2210$10.12.2022$М**** А**** А********$22.10.2003$75** ***821$M**** A**** A*********$a068m",
+        "6307 8749 1999 3014$15.12.2022$Ш******* А****** О*******$24.09.2003$75** ***881$S****** A***** O********$a083s",
+        "9740 0000 4474 0680$20.09.2022$Г******* Д**** А********$15.08.2003$75** ***967$G******* D***** A********$a072g",
+        "9999 2586 8290 2782$05.01.2023$П******** Д**** С********$14.03.2004$75** ***714$P******** D**** S********$d034p",
+        "1469 8545 6427 1479$27.08.2022$К******* А*** С********$28.02.2003$75** ***982$K******* A*** S********$a086k",
+        "1547 6854 2593 8953$23.10.2022$С******* А******** А*********$15.01.2003$75** ***847$S******* А******** A********$a093s",
+        "1684 9258 5757 5014$07.12.2022$Ш***** М***** А**********$28.01.2003$75** ***684$S****** M**** A**********$m056s"
+        ]
+        data_error=" $ $ $ $ $ ";
+
+        languge = 1;
+        const pageWidth =  window.outerWidth;
+        const pageHeight = window.outerHeight;
+        query = window.location.search.substring(1);
+        number = (query.split('&')[0]).split('=')[1];
+        if (number <=data.length){
+                elements = data[number].split('$');
+                if (elements[6] != query.split('&')[1].split('=')[1]){
+
+                number = -1;
+                }
+
+        }
+        else {
+            elements = data_error.split('$');
+            number = -1;
+        }
+
+
+
+
+         function alerted(){
+         if (languge){
+         document.getElementById('rus-engl').innerHTML="ENG";
+         document.getElementById('back').src="eng.jpg";
+         document.getElementById('sert').innerHTML="COVID-19 vaccination certificate";
+         document.getElementById('val').innerHTML="Valid";
+         if(number != -1){
+         document.getElementById('dat').innerHTML="Valid until: "+elements[1];
+         document.getElementById('fio').innerHTML=elements[5];
+         document.getElementById('pas1').innerHTML="Date of birth: ";
+         document.getElementById('pas2').innerHTML="National passport: ";
+         }
+         document.getElementById('close').innerHTML="Close";
+         oval.setAttribute('style','width:30%');
+                  if (number === -1){
+                  document.getElementById('val').innerHTML="Not found";
+         }
+         else{
+         document.getElementById('val').innerHTML="Valid";
+         }
+
+         languge = 0
+         }
+         else{
+         languge = 1;
+         document.getElementById('rus-engl').innerHTML="RUS";
+         document.getElementById('back').src="rus.jpg";
+         document.getElementById('sert').innerHTML="Сертификат вакцинации от COVID-19";
+         if(number != -1){
+         document.getElementById('dat').innerHTML="Действует до: "+elements[1];
+         document.getElementById('fio').innerHTML=elements[2];
+         document.getElementById('pas1').innerHTML="Дата рождения: ";
+         document.getElementById('pas2').innerHTML="Паспорт: ";
+         }
+         document.getElementById('close').innerHTML="Закрыть";
+         oval.setAttribute('style','width:45%');
+         if (number === -1){
+                  document.getElementById('val').innerHTML="Не найден";
+         }
+         else{
+                  document.getElementById('val').innerHTML="Действителен";
+         }
+
+         }
+         if (number === -1){}
+         }
+
+
+
+    </script>
+    <style>
+           @font-face {
+    font-family: Lato-Bold;
+    src: url(шрифит.woff2);
+   }
+        body {
+    font-family: Lato-Bold,Arial,sans-serif;
+    color: #0b1f33;
+     text-decoration: none;
+
+}
+        a:link {
+            font-family: Lato-Bold,Arial,sans-serif;
+    color: #0b1f33;
+         text-decoration: none;
+        }
+                a:visited  {
+            font-family: Lato-Bold,Arial,sans-serif;
+    color: #0b1f33;
+         text-decoration: none;
+        }
+             a:hover {
+            font-family: Lato-Bold,Arial,sans-serif;
+    color: #0b1f33;
+         text-decoration: none;
+        }
+                a:active   {
+            font-family: Lato-Bold,Arial,sans-serif;
+    color: #0b1f33;
+         text-decoration: none;
+        }
+        .wrapper{
+            width :100%;
+            height:100%;
+            margin:auto;
+            position:relative;
+            z-index:3;
+
+
+        }
+        .card{
+            width :90%;
+            height:470px;
+            margin: auto;
+            border-radius: 50px;
+            background :rgb(45, 195, 106) ;
+        }
+        .header{
+            margin:auto;
+            width :80%;
+            height:200px;
+
+
+        }
+        .img{
+             width :60%;
+             float: left;
+            height:100%;
+            margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+
+        }
+        .lang{
+            float: right;
+             width :40%;
+            height:100%;
+            margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+        }
+        .circle{
+         width :80%;
+         height:24%;
+         border:2px solid white;
+        border-radius: 100%;
+
+        }
+    h4{
+    display: block;
+    font-weight: bold;
+    paddint-top:10px;
+    color:white;
+    font-size:52px;
+    text-align:center;
+    }
+    .text{
+
+     width :100%;
+     height:100%;
+     margin: 0;
+     position:relative;
+     z-index:2;
+
+    }
+    .valid{
+    width :45%;
+     height:17%;
+     margin: 0;
+     border-radius:40px;
+     margin:auto;
+     margin-top:50px;
+     background:white;
+
+
+    }
+    .validtxt{
+         color:#363636;
+    display: block;
+    font-weight: bold;
+    color:black;
+    font-size:38px;
+    text-align:center;
+    padding-top:15px;
+    }
+     .number{
+     z-index:1;
+     position:relative;
+    width :100%;
+     height:30%;
+     margin: 0;
+     margin:auto;
+     text-align:center;
+    }
+    h3{
+    font-weight: bold;
+    color:white;
+    font-size:50px;
+    text-align:center;
+    }
+    .data_end{
+        border-bottom:1px solid #66727f;
+        width :100%;
+        height:110px;
+        margin-top:40px;
+        text-align:center;
+    }
+    .foot{
+    margin:auto;
+    width:90%;
+    height:100%;
+
+    }
+    .date_of_text{
+        color: #66727f;
+        font-size:35px;
+
+        font-weight: bold;
+
+    }
+    .text_border{
+        width:80%;
+    height:40%;
+    margin:auto;
+    }
+    .info{
+    width:65%;
+    margin:auto;
+    margin-top:50px;
+
+    }
+    h2{
+    font-size:45px;
+    text-align:center;
+    color:black;
+    }
+    p{
+    font-size:35px;
+    text-align:center;
+    color:black;
+    font-weight: bold;
+    }
+    .gray{
+    color: #66727f;
+     font-size:40px;
+    }
+    .but{
+    width:100%;
+    height:120px;
+    margin:auto;
+    margin-top:75px;
+    border-radius:15px;
+    border:3px solid blue;
+
+
+    }
+    .center{
+     width:100%;
+    height:60px;
+    margin-top:35px;
+    color:blue;
+    text-align:center;
+    font-weight: bold;
+    font-size:40px;
+    }
+    #submit{
+    width:250px;
+    height:100px;
+    border: 0;
+    position:absolute;
+    margin-left:50px;
+    margin-top:110px;
+    background:none;
+
+    }
+    .kal{
+        position:absolute;
+        margin-left:-60px;
+    }
+
+    .love1-1{
+        z-index:0;
+margin-top:88px;
+    margin-left:740px;
+        position:absolute;
+    width:17%;
+    height:100px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius:0 100px 100px 0;
+    transform: rotate(-50deg);
+    }
+    .love1-2{
+    z-index:0;
+margin-top:52px;
+    margin-left:690px;
+        position:absolute;
+    width:14%;
+    height:220px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius: 0px 0 100px 100px;
+     transform: rotate(135deg);
+    }
+    .eraser1{
+     z-index:1;
+
+    margin-left:868px;
+        position:absolute;
+    width:4%;
+    height:250px;
+    background:white;
+    }
+    .line1-1{
+    z-index:0;
+margin-top:140px;
+    margin-left:780px;
+        position:absolute;
+    width:2%;
+    height:60px;
+    background:rgb(45, 195, 106) ;
+    }
+        .line1-2{
+    z-index:0;
+margin-top:140px;
+    margin-left:780px;
+        position:absolute;
+    width:2%;
+    height:60px;
+         transform: rotate(90deg);
+    background:rgb(45, 195, 106);
+    }
+
+
+
+        .love2-1{
+        z-index:0;
+margin-top:238px;
+    margin-left:650px;
+        position:absolute;
+    width:8%;
+    height:50px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius:0 100px 100px 0;
+    transform: rotate(-40deg);
+    }
+    .love2-2{
+    z-index:0;
+margin-top:227px;
+    margin-left:640px;
+        position:absolute;
+    width:5.2%;
+    height:80px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius: 0px 0 100px 100px;
+     transform: rotate(135deg);
+    }
+
+    .line2-1{
+    z-index:0;
+margin-top:255px;
+    margin-left:672px;
+        position:absolute;
+    width:1%;
+    height:30px;
+    background:rgb(45, 195, 106) ;
+    }
+        .line2-2{
+    z-index:0;
+margin-top:255px;
+    margin-left:672px;
+        position:absolute;
+    width:1%;
+    height:30px;
+         transform: rotate(90deg);
+    background:rgb(45, 195, 106);
+    }
+
+    .love3-1{
+        z-index:0;
+margin-top:398px;
+    margin-left:710px;
+        position:absolute;
+    width:14%;
+    height:90px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius:0 100px 100px 0;
+    transform: rotate(-40deg);
+    }
+    .love3-2{
+    z-index:0;
+margin-top:380px;
+    margin-left:690px;
+        position:absolute;
+    width:9%;
+    height:120px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius: 0px 0 100px 100px;
+     transform: rotate(135deg);
+    }
+    .eraser3{
+     z-index:1;
+    margin-top:470px;
+    margin-left:668px;
+        position:absolute;
+    width:20%;
+    height:60px;
+    background:white;
+    }
+    .line3-1{
+    z-index:0;
+margin-top:420px;
+    margin-left:747px;
+        position:absolute;
+    width:2%;
+    height:45px;
+    background:rgb(45, 195, 106) ;
+    }
+        .line3-2{
+    z-index:0;
+margin-top:420px;
+    margin-left:747px;
+        position:absolute;
+    width:2%;
+    height:45px;
+         transform: rotate(90deg);
+    background:rgb(45, 195, 106);
+    }
+
+    .love4-1{
+        z-index:0;
+margin-top:368px;
+    margin-left:110px;
+        position:absolute;
+    width:14%;
+    height:90px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius:0 100px 100px 0;
+    transform: rotate(-40deg);
+    }
+    .love4-2{
+    z-index:0;
+margin-top:350px;
+    margin-left:90px;
+        position:absolute;
+    width:9%;
+    height:120px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius: 0px 0 100px 100px;
+     transform: rotate(135deg);
+    }
+    .eraser4{
+     z-index:1;
+    margin-top:470px;
+    margin-left:68px;
+        position:absolute;
+    width:20%;
+    height:40px;
+    background:white;
+    }
+    .line4-1{
+    z-index:0;
+margin-top:400px;
+    margin-left:147px;
+        position:absolute;
+    width:2%;
+    height:45px;
+    background:rgb(45, 195, 106) ;
+    }
+        .line4-2{
+    z-index:0;
+margin-top:400px;
+    margin-left:147px;
+        position:absolute;
+    width:2%;
+    height:45px;
+         transform: rotate(90deg);
+    background:rgb(45, 195, 106);
+    }
+
+        .love5-1{
+        z-index:0;
+margin-top:185px;
+    margin-left:-45px;
+        position:absolute;
+    width:20%;
+    height:110px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius:0 100px 100px 0;
+    transform: rotate(-45deg);
+    }
+    .love5-2{
+    z-index:0;
+margin-top:150px;
+    margin-left:-65px;
+        position:absolute;
+    width:12%;
+    height:180px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius: 0px 0 100px 100px;
+     transform: rotate(135deg);
+    }
+    .eraser5{
+     z-index:1;
+    margin-top:150px;
+    margin-left:-60px;
+        position:absolute;
+    width:6.2%;
+    height:200px;
+    background:white;
+    }
+.line5-1{
+    z-index:0;
+margin-top:225px;
+    margin-left:15px;
+        position:absolute;
+    width:2%;
+    height:60px;
+    background:rgb(45, 195, 106) ;
+    }
+        .line5-2{
+    z-index:0;
+margin-top:225px;
+    margin-left:15px;
+        position:absolute;
+    width:2%;
+    height:60px;
+         transform: rotate(90deg);
+    background:rgb(45, 195, 106);
+    }
+
+    .love6-1{
+        z-index:0;
+margin-top:58px;
+    margin-left:150px;
+        position:absolute;
+    width:8%;
+    height:50px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius:0 100px 100px 0;
+    transform: rotate(-40deg);
+    }
+    .love6-2{
+    z-index:0;
+margin-top:47px;
+    margin-left:140px;
+        position:absolute;
+    width:5.2%;
+    height:80px;
+    background:rgb(76,204,128);
+    float:left;
+    border-radius: 0px 0 100px 100px;
+     transform: rotate(135deg);
+    }
+
+    .line6-1{
+    z-index:0;
+margin-top:75px;
+    margin-left:172px;
+        position:absolute;
+    width:1%;
+    height:30px;
+    background:rgb(45, 195, 106) ;
+    }
+        .line6-2{
+    z-index:0;
+margin-top:75px;
+    margin-left:172px;
+        position:absolute;
+    width:1%;
+    height:30px;
+         transform: rotate(90deg);
+    background:rgb(45, 195, 106);
+    }
+
+    </style>
+</head>
+<body>
+<div class = "wrapper">
+<div class = "header">
+    <div class = "img">
+        <div style="width :100%;height:60%; margin:0;padding:0;"> </div>
+        <div style="width :100%;height:40%;margin:0;padding:0;"><a style="margin:0;padding:0;box-sizing: border-box;" class = "imggos" href="https://www.gosuslugi.ru"><span style="color:blue;font-weight: bold;font-size:70px;">гос</span><span style="color:red;font-weight: bold;font-size:70px;">услуги</span></a></div>
+
+    </div>
+    <div class ="lang">
+        <button  type="submit" id="submit" onclick="alerted();"></button>
+        <div style="width :35%;height:100%;margin:0;padding:0;float: left;"></div>
+        <div style="width :30%;height:100%;margin:0;padding:0;float: left;">
+             <div style="width :100%;height:65%;margin:0;padding:0;"></div>
+            <a href="#" >
+            <div class = "circle butjs">
+                <img id = "back" style="width = 100%;height:100%;border-radius:100%;" src="rus.jpg">
+            </div>
+            </a>
+        </div>
+        <div style="width :30%;height:100%;margin:0;padding:0;float: left ;">
+            <div style="width :100%;height:70%;margin:0;padding:0;"></div>
+            <div style="width :100%;height:30%;margin:0;padding:0;">
+                <div class="butjs" style="width :100%;height:50%;margin:0;padding:0;float:right;"><span style="font-size:40px;font-weight:bold;"><a href="#" id= "rus-engl" >RUS</a></span></div >
+            </div>
+        </div>
+    </div>
+</div>
+<div class = "card" id = "card">
+    <div class="love1-1 love"></div>
+    <div class="love1-2 love"></div>
+    <div class="line1-1 line"></div>
+    <div class="line1-2 line"></div>
+    <div class="eraser1"></div>
+        <div class="love2-1 love"></div>
+    <div class="love2-2 love"></div>
+    <div class="line2-1 line"></div>
+    <div class="line2-2 line"></div>
+        <div class="love3-1 love"></div>
+    <div class="love3-2 love"></div>
+    <div class="line3-1 line"></div>
+    <div class="line3-2 line"></div>
+    <div class="eraser3"></div>
+     <div class="love4-1 love"></div>
+    <div class="love4-2 love"></div>
+    <div class="line4-1 line"></div>
+    <div class="line4-2 line"></div>
+    <div class="eraser4"></div>
+         <div class="love5-1 love"></div>
+    <div class="love5-2 love"></div>
+    <div class="line5-1 line"></div>
+    <div class="line5-2 line"></div>
+    <div class="eraser5"></div>
+         <div class="love6-1 love"></div>
+    <div class="love6-2 love"></div>
+    <div class="line6-1 line"></div>
+    <div class="line6-2 line"></div>
+    <div class="text_border">
+
+    <div class="text">
+        <h4><p style="margin-top:10px;pading:0px;">&nbsp;</p><span id="sert">Сертификат вакцинации от COVID-19</span></h4>
+    </div>
+    </div>
+    <div id="oval" class="valid"><span id="val" class ="validtxt"></span></div>
+    <div class="number"><h3 id = "num_vak"></h3></div>
+</div>
+<div class = "foot">
+
+<div  class="data_end" id="data_end"><img class = "kal" src="k3.png"><span id="dat" class="date_of_text"></span></div>
+<div class="info" id="info">
+    <h2 id="fio"></h2>
+    <p ><span id="pas1"></span><span class="gray" id = "date_bersday"></span></p>
+    <p ><span id="pas2"></span><span class="gray" id = "pasport_id"></span></p>
+</div>
+    <a href="https://www.gosuslugi.ru"><div class="but"><div id="close" class="center">Закрыть</div></div></a>
+</div>
+
+</div>
+</body>
+<script>
+
+         document.getElementById('dat').innerHTML="Действует до: "+elements[1];
+         document.getElementById('fio').innerHTML=elements[2];
+       document.getElementById('num_vak').innerHTML="№ "+elements[0];
+        document.getElementById('date_bersday').innerHTML=" "+elements[3];
+         document.getElementById('pasport_id').innerHTML=" "+elements[4];
+         if (number === -1){
+            document.getElementById('card').style.backgroundColor = "#e4170b";
+            all_love =  document.getElementsByClassName("love");
+            for(let i = 0;i<all_love.length;i++){
+            all_love[i].style.backgroundColor ="#e83a2f";
+            }
+            all_line =  document.getElementsByClassName("line");
+            for(let i = 0;i<all_love.length;i++){
+            all_line[i].style.backgroundColor ="#e4170b";
+            }
+
+                   document.getElementById('num_vak').innerHTML="";
+                   document.getElementById('val').innerHTML="Не найден";
+
+                  document.getElementById("data_end").remove();
+                   document.getElementById("info").remove();
+         }
+         else{
+         document.getElementById('pas1').innerHTML="Дата рождения: ";
+         document.getElementById('pas2').innerHTML="Паспорт: ";
+            document.getElementById('val').innerHTML="Действителен";
+         }
+
+</script>
+</html>
